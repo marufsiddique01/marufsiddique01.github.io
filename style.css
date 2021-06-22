@@ -857,6 +857,23 @@ body.night .experience .job_time, body.night .footer_copyright, body.night .intr
 
 
 @media screen and (max-width: 425px){
+
+
+    .list {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    text-align: left;
+    line-height:30px;
+    list-style:none;
+    animation-name: change;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+    .item{
+        font-size: 20;
+    }
+
     .switch-wrapper{
             top: 10px;
             right: 20px;
