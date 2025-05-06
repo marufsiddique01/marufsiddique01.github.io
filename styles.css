@@ -600,6 +600,75 @@ body {
     display: block;
 }
 
+/* How I Work Section */
+.workflow-section {
+    padding: 6rem 0;
+    background-color: white;
+}
+
+.workflow-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.workflow-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.workflow-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    position: relative;
+    padding-bottom: 2.5rem;
+}
+
+.workflow-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 22px;
+    top: 60px;
+    bottom: 0;
+    width: 2px;
+    background-color: #e6e6e6;
+}
+
+.workflow-icon {
+    width: 45px;
+    height: 45px;
+    background-color: #f0f5ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 2px solid #cce0ff;
+}
+
+.workflow-icon i {
+    color: #0066cc;
+    font-size: 1.2rem;
+}
+
+.workflow-content {
+    flex: 1;
+}
+
+.workflow-content h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: #333;
+}
+
+.workflow-content p {
+    font-size: 1rem;
+    color: #4a4a4a;
+    line-height: 1.6;
+}
+
 /* Media Queries */
 @media screen and (max-width: 768px) {
     .burger {
@@ -677,6 +746,10 @@ body {
     .agency-projects {
         grid-template-columns: 1fr;
     }
+
+    .workflow-item {
+        gap: 1rem;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -695,6 +768,15 @@ body {
     
     .agency-teams {
         grid-template-columns: 1fr;
+    }
+
+    .workflow-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .workflow-content h3 {
+        font-size: 1.1rem;
     }
 }
 
