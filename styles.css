@@ -456,6 +456,150 @@ body {
     margin-right: 0.5rem;
 }
 
+/* Agency Experience Section */
+.agency-section {
+    padding: 6rem 0;
+    background-color: #f3f7fb;
+}
+
+.agency-container {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.agency-header {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    background-color: #0066cc;
+    color: white;
+}
+
+.agency-logo {
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.agency-logo span {
+    color: #0066cc;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.agency-title h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+.agency-role {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.agency-content {
+    padding: 2rem;
+}
+
+.agency-content > p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    color: #4a4a4a;
+}
+
+.agency-teams {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.agency-team {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid #0066cc;
+}
+
+.agency-team:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.agency-team i {
+    font-size: 2rem;
+    color: #0066cc;
+    margin-bottom: 1rem;
+}
+
+.agency-team h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.agency-team p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.agency-section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #333;
+    position: relative;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.agency-projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.agency-project {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #0066cc;
+}
+
+.agency-project h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: #333;
+}
+
+.agency-project p {
+    font-size: 0.95rem;
+    color: #4a4a4a;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.agency-client {
+    font-size: 0.85rem;
+    color: #0066cc;
+    font-weight: 500;
+    display: block;
+}
+
 /* Media Queries */
 @media screen and (max-width: 768px) {
     .burger {
@@ -519,6 +663,20 @@ body {
     .project-title {
         font-size: 1.4rem;
     }
+
+    .agency-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .agency-logo {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .agency-projects {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -533,6 +691,10 @@ body {
     .project-link:first-child {
         border-right: none;
         border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .agency-teams {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -575,6 +737,14 @@ body {
 /* Large devices (laptops and desktops) */
 @media screen and (min-width: 992px) {
     .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .agency-teams {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .agency-projects {
         grid-template-columns: repeat(2, 1fr);
     }
 }
