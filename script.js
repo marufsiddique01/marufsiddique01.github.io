@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const burger = document.querySelector(".burger");
   const nav = document.querySelector(".nav-links");
   const navLinks = document.querySelectorAll(".nav-links li");
+  const themeToggleBtn = document.getElementById("theme-toggle-btn");
 
   // Toggle navigation
   burger.addEventListener("click", () => {
@@ -35,6 +36,24 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // Theme toggle functionality
+  themeToggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    // Save preference to localStorage
+    if (document.body.classList.contains("dark-mode")) {
+      localStorage.setItem("theme", "dark");
+    } else {
+      localStorage.setItem("theme", "light");
+    }
+  });
+
+  // Check for saved theme preference
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+  }
 });
 
 // Add smooth scrolling

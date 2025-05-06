@@ -6,10 +6,94 @@
     font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
 }
 
+/* Dark mode variables */
+:root {
+    --bg-color: #f8f9fa;
+    --text-color: #333;
+    --heading-color: #1a1a1a;
+    --primary-color: #0066cc;
+    --section-bg: white;
+    --card-bg: white;
+    --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    --navbar-bg: rgba(255, 255, 255, 0.95);
+    --border-color: #f0f0f0;
+    --alternate-bg: #f8f9fa;
+    --light-bg: #f0f5ff;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --heading-color: #ffffff;
+    --primary-color: #4d9fff;
+    --section-bg: #1e1e1e;
+    --card-bg: #2d2d2d;
+    --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    --navbar-bg: rgba(30, 30, 30, 0.95);
+    --border-color: #3d3d3d;
+    --alternate-bg: #252525;
+    --light-bg: #2a2a2a;
+}
+
 body {
     line-height: 1.6;
-    color: #333;
-    background-color: #f8f9fa;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme toggle styles */
+.theme-toggle {
+    margin-right: 1.5rem;
+    position: relative;
+}
+
+#theme-toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+#theme-toggle-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#theme-toggle-btn .fa-sun {
+    position: absolute;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+#theme-toggle-btn .fa-moon {
+    position: absolute;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+body.dark-mode #theme-toggle-btn .fa-sun {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body.dark-mode #theme-toggle-btn .fa-moon {
+    opacity: 0;
+    transform: translateY(-20px);
 }
 
 /* Container */
@@ -25,7 +109,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 5%;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: var(--navbar-bg);
     position: fixed;
     top: 0;
     width: 100%;
@@ -36,7 +120,7 @@ body {
 .logo {
     font-weight: 700;
     font-size: 1.8rem;
-    color: #0066cc;
+    color: var(--primary-color);
     cursor: pointer;
 }
 
@@ -50,14 +134,14 @@ body {
 }
 
 .nav-links a {
-    color: #333;
+    color: var(--text-color);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #0066cc;
+    color: var(--primary-color);
 }
 
 .burger {
@@ -68,7 +152,7 @@ body {
 .burger div {
     width: 25px;
     height: 3px;
-    background-color: #333;
+    background-color: var(--text-color);
     margin: 5px;
     transition: all 0.3s ease;
 }
@@ -109,7 +193,7 @@ body {
     justify-content: center;
     padding: 0 5%;
     text-align: center;
-    background: linear-gradient(45deg, #f3f4f6 0%, #e9ecef 100%);
+    background: linear-gradient(45deg, var(--bg-color) 0%, var(--alternate-bg) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -134,7 +218,7 @@ body {
     font-size: 4.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
-    color: #1a1a1a;
+    color: var(--heading-color);
     line-height: 1.2;
 }
 
@@ -142,13 +226,13 @@ body {
     font-size: 2.5rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
-    color: #0066cc;
+    color: var(--primary-color);
 }
 
 .hero p {
     font-size: 1.25rem;
     margin-bottom: 2.5rem;
-    color: #4a4a4a;
+    color: var(--text-color);
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -157,19 +241,19 @@ body {
 .cta-button {
     display: inline-block;
     padding: 0.75rem 2rem;
-    background-color: #0066cc;
+    background-color: var(--primary-color);
     color: white;
     text-decoration: none;
     border-radius: 4px;
     font-weight: 600;
     font-size: 1.1rem;
     transition: all 0.3s ease;
-    border: 2px solid #0066cc;
+    border: 2px solid var(--primary-color);
 }
 
 .cta-button:hover {
     background-color: transparent;
-    color: #0066cc;
+    color: var(--primary-color);
 }
 
 .social-icons {
@@ -180,13 +264,13 @@ body {
 }
 
 .social-icons a {
-    color: #333;
+    color: var(--text-color);
     font-size: 1.5rem;
     transition: color 0.3s ease;
 }
 
 .social-icons a:hover {
-    color: #0066cc;
+    color: var(--primary-color);
 }
 
 /* Section Styling */
@@ -194,7 +278,7 @@ body {
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 3rem;
-    color: #1a1a1a;
+    color: var(--heading-color);
     position: relative;
 }
 
@@ -206,13 +290,13 @@ body {
     transform: translateX(-50%);
     width: 60px;
     height: 4px;
-    background-color: #0066cc;
+    background-color: var(--primary-color);
 }
 
 /* About Section */
 .about-section {
     padding: 6rem 0;
-    background-color: white;
+    background-color: var(--section-bg);
 }
 
 .about-content {
@@ -233,25 +317,26 @@ body {
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
     line-height: 1.7;
-    color: #4a4a4a;
+    color: var(--text-color);
 }
 
 .avatar-placeholder {
     width: 280px;
     height: 280px;
-    background-color: #f0f0f0;
+    background-color: var(--light-bg);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border: 5px solid #e6e6e6;
+    border: 5px solid var(--border-color);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .avatar-placeholder i {
     font-size: 100px;
-    color: #bbb;
+    color: var(--text-color);
+    opacity: 0.5;
 }
 
 .tech-stack {
@@ -263,18 +348,18 @@ body {
 
 .tech-badge {
     padding: 0.5rem 1rem;
-    background-color: #f0f5ff;
-    color: #0066cc;
+    background-color: var(--light-bg);
+    color: var(--primary-color);
     border-radius: 30px;
     font-size: 0.9rem;
     font-weight: 500;
-    border: 1px solid #cce0ff;
+    border: 1px solid var(--border-color);
 }
 
 /* Skills Section */
 .skills-section {
     padding: 6rem 0;
-    background-color: #f8f9fa;
+    background-color: var(--alternate-bg);
 }
 
 .skills-container {
@@ -284,9 +369,9 @@ body {
 }
 
 .skills-category {
-    background-color: white;
+    background-color: var(--card-bg);
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--card-shadow);
     padding: 2rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -300,20 +385,20 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 1.5rem;
-    border-bottom: 2px solid #f0f0f0;
+    border-bottom: 2px solid var(--border-color);
     padding-bottom: 1rem;
 }
 
 .category-header i {
     font-size: 1.8rem;
-    color: #0066cc;
+    color: var(--primary-color);
     margin-right: 1rem;
 }
 
 .category-header h3 {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #333;
+    color: var(--heading-color);
 }
 
 .skills-grid {
@@ -334,25 +419,25 @@ body {
     align-items: center;
     width: 40px;
     height: 40px;
-    background-color: #f0f5ff;
+    background-color: var(--light-bg);
     border-radius: 8px;
     flex-shrink: 0;
 }
 
 .skill-icon i {
-    color: #0066cc;
+    color: var(--primary-color);
     font-size: 1.2rem;
 }
 
 .skill-name {
     font-weight: 500;
-    color: #4a4a4a;
+    color: var(--text-color);
 }
 
 /* Projects Section */
 .projects-section {
     padding: 6rem 0;
-    background-color: white;
+    background-color: var(--section-bg);
 }
 
 .projects-grid {
@@ -362,15 +447,15 @@ body {
 }
 
 .project-card {
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--card-shadow);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid #f0f0f0;
+    border: 1px solid var(--border-color);
 }
 
 .project-card:hover {
@@ -386,7 +471,7 @@ body {
     font-size: 1.6rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #1a1a1a;
+    color: var(--heading-color);
 }
 
 .project-tech {
@@ -398,21 +483,21 @@ body {
 
 .tech-tag {
     padding: 0.3rem 0.8rem;
-    background-color: #f0f5ff;
-    color: #0066cc;
+    background-color: var(--light-bg);
+    color: var(--primary-color);
     border-radius: 30px;
     font-size: 0.8rem;
     font-weight: 500;
 }
 
 .project-description {
-    color: #4a4a4a;
+    color: var(--text-color);
     line-height: 1.6;
     margin-bottom: 1.5rem;
 }
 
 .project-outcome {
-    background-color: #f8f9fa;
+    background-color: var(--alternate-bg);
     padding: 1.2rem;
     border-radius: 6px;
     margin-top: 1rem;
@@ -421,35 +506,35 @@ body {
 .project-outcome h4 {
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: #333;
+    color: var(--heading-color);
 }
 
 .project-outcome p {
-    color: #4a4a4a;
+    color: var(--text-color);
     font-size: 0.95rem;
 }
 
 .project-links {
     display: flex;
-    border-top: 1px solid #f0f0f0;
+    border-top: 1px solid var(--border-color);
 }
 
 .project-link {
     flex: 1;
     text-align: center;
     padding: 1rem;
-    color: #0066cc;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: 500;
     transition: background-color 0.2s ease;
 }
 
 .project-link:first-child {
-    border-right: 1px solid #f0f0f0;
+    border-right: 1px solid var(--border-color);
 }
 
 .project-link:hover {
-    background-color: #f0f5ff;
+    background-color: var(--light-bg);
 }
 
 .project-link i {
@@ -459,13 +544,13 @@ body {
 /* Agency Experience Section */
 .agency-section {
     padding: 6rem 0;
-    background-color: #f3f7fb;
+    background-color: var(--alternate-bg);
 }
 
 .agency-container {
-    background-color: white;
+    background-color: var(--card-bg);
     border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--card-shadow);
     overflow: hidden;
 }
 
@@ -473,7 +558,7 @@ body {
     display: flex;
     align-items: center;
     padding: 2rem;
-    background-color: #0066cc;
+    background-color: var(--primary-color);
     color: white;
 }
 
@@ -490,7 +575,7 @@ body {
 }
 
 .agency-logo span {
-    color: #0066cc;
+    color: var(--primary-color);
     font-size: 1.8rem;
     font-weight: 700;
 }
@@ -514,7 +599,7 @@ body {
     font-size: 1.1rem;
     line-height: 1.7;
     margin-bottom: 2rem;
-    color: #4a4a4a;
+    color: var(--text-color);
 }
 
 .agency-teams {
@@ -525,12 +610,12 @@ body {
 }
 
 .agency-team {
-    background-color: #f8f9fa;
+    background-color: var(--alternate-bg);
     padding: 1.5rem;
     border-radius: 8px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-top: 4px solid #0066cc;
+    border-top: 4px solid var(--primary-color);
 }
 
 .agency-team:hover {
@@ -540,7 +625,7 @@ body {
 
 .agency-team i {
     font-size: 2rem;
-    color: #0066cc;
+    color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
@@ -548,22 +633,22 @@ body {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: #333;
+    color: var(--heading-color);
 }
 
 .agency-team p {
     font-size: 0.9rem;
-    color: #666;
+    color: var(--text-color);
 }
 
 .agency-section-title {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
-    color: #333;
+    color: var(--heading-color);
     position: relative;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid #f0f0f0;
+    border-bottom: 2px solid var(--border-color);
 }
 
 .agency-projects {
@@ -573,29 +658,29 @@ body {
 }
 
 .agency-project {
-    background-color: #f8f9fa;
+    background-color: var(--alternate-bg);
     padding: 1.5rem;
     border-radius: 8px;
-    border-left: 4px solid #0066cc;
+    border-left: 4px solid var(--primary-color);
 }
 
 .agency-project h5 {
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 0.8rem;
-    color: #333;
+    color: var(--heading-color);
 }
 
 .agency-project p {
     font-size: 0.95rem;
-    color: #4a4a4a;
+    color: var(--text-color);
     margin-bottom: 1rem;
     line-height: 1.5;
 }
 
 .agency-client {
     font-size: 0.85rem;
-    color: #0066cc;
+    color: var(--primary-color);
     font-weight: 500;
     display: block;
 }
@@ -603,7 +688,7 @@ body {
 /* How I Work Section */
 .workflow-section {
     padding: 6rem 0;
-    background-color: white;
+    background-color: var(--section-bg);
 }
 
 .workflow-container {
@@ -632,23 +717,23 @@ body {
     top: 60px;
     bottom: 0;
     width: 2px;
-    background-color: #e6e6e6;
+    background-color: var(--border-color);
 }
 
 .workflow-icon {
     width: 45px;
     height: 45px;
-    background-color: #f0f5ff;
+    background-color: var(--light-bg);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    border: 2px solid #cce0ff;
+    border: 2px solid var(--border-color);
 }
 
 .workflow-icon i {
-    color: #0066cc;
+    color: var(--primary-color);
     font-size: 1.2rem;
 }
 
@@ -660,12 +745,12 @@ body {
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 0.6rem;
-    color: #333;
+    color: var(--heading-color);
 }
 
 .workflow-content p {
     font-size: 1rem;
-    color: #4a4a4a;
+    color: var(--text-color);
     line-height: 1.6;
 }
 
@@ -673,7 +758,7 @@ body {
 .cta-section {
     position: relative;
     padding: 8rem 0;
-    background-image: linear-gradient(135deg, #0066cc, #004080);
+    background-image: linear-gradient(135deg, var(--primary-color), #004080);
     color: white;
     text-align: center;
     overflow: hidden;
@@ -715,7 +800,7 @@ body {
     display: inline-block;
     padding: 1rem 3rem;
     background-color: white;
-    color: #0066cc;
+    color: var(--primary-color);
     text-decoration: none;
     border-radius: 50px;
     font-weight: 700;
@@ -743,7 +828,7 @@ body {
         right: 0;
         top: 70px;
         width: 60%;
-        background-color: rgba(255, 255, 255, 0.95);
+        background-color: var(--navbar-bg);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -834,7 +919,7 @@ body {
     
     .project-link:first-child {
         border-right: none;
-        border-bottom: 1px solid #f0f0f0;
+        border-bottom: 1px solid var(--border-color);
     }
     
     .agency-teams {
